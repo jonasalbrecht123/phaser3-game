@@ -16,7 +16,7 @@ export default class playerLiveLabel extends Phaser.GameObjects.Text
 		this.Live  = Live
 		this.updateLiveText()
 	}
-
+  
 	reduce(hitBomb)
 	{
 		this.setLive(this.Live - 1)

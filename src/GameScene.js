@@ -9,19 +9,23 @@ const STAR_KEY = 'star'
 const BOMB_KEY = 'bomb'
 const DUDE_KEY = 'dude'
 
+export const gameData = {
+	playerLive: 3,
+	playerLiveLabel: undefined,
+	scoreLabel : undefined
+}
+
 export default class GameScene extends Phaser.Scene
 {
 	constructor()
 	{
-		super('game-scene')
+		super('GameScene')
 	
     this.player = undefined
     this.cursors = undefined
-    this.scoreLabel = undefined
-	this.playerLiveLabel = undefined
+    
     this.stars = undefined
     this.bombSpawner = undefined
-    this.playerLive = undefined
 	this.newlife = 0
 	this.level = 1
 	this.immunity = 0
@@ -30,11 +34,10 @@ export default class GameScene extends Phaser.Scene
 
 	preload()
 	{
-        this.load.image('sky', 'assets/sky.png')
+     
 		this.load.image(GROUND_KEY, 'assets/platform.png')
 		this.load.image(STAR_KEY, 'assets/star.png')
 		this.load.image(BOMB_KEY, 'assets/bomb.png')
-		this.load.image('Restart_Key','assets/Restart Button.png')
 
 		this.load.spritesheet( DUDE_KEY, 
 			'assets/dude.png',
@@ -44,24 +47,31 @@ export default class GameScene extends Phaser.Scene
 
 	create()
 	{
-		this.add.image(400, 300, 'sky')
+		this.physics.world.setBounds(-300, 0, 10000, 100000)
+		gameData.playerLive = 99
+		 
+		this.scene.launch('UIScene')
 
 		this.bombSpawner = new BombSpawner(this, BOMB_KEY)
 		const bombsGroup = this.bombSpawner.group
 		
 		this.player = this.createPlayer()
 		this.stars = this.createStars()
-        this.playerLive = 3
+        
 
 		const platforms = this.createPlatforms()
 		this.cameras.main.startFollow(this.player)
-		this.scoreLabel = this.createScoreLabel(16, 16, 0)
-        this.playerLiveLabel = this.createplayerLive(16, 48, this.playerLive)
+       
 
 		
         this.physics.add.collider(this.player, bombsGroup, this.hitBomb, null, this)
 
 		this.physics.add.overlap(this.player, this.stars, this.collectStar, null, this)
+
+		const voi = this.scene.scene.add.rectangle(0, 1950, 100000, 50)
+		const borders = this.physics.add.staticGroup()
+		borders.add(voi)
+		this.physics.add.overlap(this.player, borders, this.dead, null, this)
 
 		this.cursors = this.input.keyboard.createCursorKeys()
 	}
@@ -98,7 +108,7 @@ export default class GameScene extends Phaser.Scene
         {
             star.disableBody(true, true)
 
-            this.scoreLabel.add(10)
+            gameData.scoreLabel.add(10)
 			this.newlife +=1
 
             if (this.stars.countActive(true) === 0)
@@ -111,14 +121,14 @@ export default class GameScene extends Phaser.Scene
 				this.createPlatforms()
                 //  A new batch of stars to collect
                 this.stars.children.iterate((child) => {
-                    child.enableBody(true, child.x, 0, true, true)
+                    child.enableBody(true, child.x, 1000, true, true)
                 })
             }
         	
 			if (this.newlife === 5)
 			{
-				this.playerLive +=1
-				this.playerLiveLabel.setLive(this.playerLive)
+				gameData.playerLive +=1
+				gameData.playerLiveLabel.setLive(gameData.playerLive)
 				this.newlife = 0
 			}
 
@@ -129,16 +139,22 @@ export default class GameScene extends Phaser.Scene
     {
         this.platforms = this.physics.add.staticGroup()
 
-		this.platforms.create(400, 568, GROUND_KEY).setScale(2).refreshBody()
+		this.platforms.create(400, 1568, GROUND_KEY).setScale(2).refreshBody()
+		this.platforms.create(1200, 1568, GROUND_KEY).setScale(2).refreshBody()
+		this.platforms.create(1800, 1568, GROUND_KEY).setScale(2).refreshBody()
+		this.platforms.create(2400, 1568, GROUND_KEY).setScale(2).refreshBody()
 	
 		if (this.level === 1) {
-			this.platforms.create(600, 400, GROUND_KEY)
-			this.platforms.create(50, 250, GROUND_KEY)
-			this.platforms.create(750, 220, GROUND_KEY)
+			this.platforms.create(600, 1400, GROUND_KEY)
+			this.platforms.create(1400, 1300, GROUND_KEY)
+			this.platforms.create(50, 1250, GROUND_KEY)
+			this.platforms.create(750, 1220, GROUND_KEY)
+			this.platforms.create(2250, 1220, GROUND_KEY)
 		} else if (this.level === 2) {
-			this.platforms.create(600, 400, GROUND_KEY)
-			this.platforms.create(50, 250, GROUND_KEY)
-			this.platforms.create(750, 220, GROUND_KEY)
+			this.platforms.create(600, 1400, GROUND_KEY)
+			this.platforms.create(1400, 1300, GROUND_KEY)
+			this.platforms.create(50, 1250, GROUND_KEY)
+			this.platforms.create(750, 1220, GROUND_KEY)
 		}
 
 		this.physics.add.collider(this.player, this.platforms)
@@ -147,16 +163,9 @@ export default class GameScene extends Phaser.Scene
 		return this.platforms
 	}
 
-	createRestartButton()
-	{
-		const resetButton = this.add.image(400, 300, 'Restart_Key')
-		resetButton.setInteractive()
-		resetButton.setScale(0.1)
-		resetButton.on('pointerdown', () => location.reload())
-	}	
     createPlayer()
     {
-		const player = this.physics.add.sprite(100, 450, DUDE_KEY)
+		const player = this.physics.add.sprite(100, 1450, DUDE_KEY)
 		player.setBounce(0.2)
 		player.setCollideWorldBounds(true)
 
@@ -183,10 +192,10 @@ export default class GameScene extends Phaser.Scene
     }
     createStars()
 	{
-		const stars = this.physics.add.group({
+		let stars = this.physics.add.group({
 			key: STAR_KEY,
-			repeat: 11,
-			setXY: { x: 12, y: 0, stepX: 70 },
+			repeat: 15,
+			setXY: { x: 12, y: 1000, stepX: 100 },
 		})
 		
 		stars.children.iterate((child) => {
@@ -196,21 +205,11 @@ export default class GameScene extends Phaser.Scene
 		return stars
 	}
 
-    createScoreLabel(x, y, score)
-	{
-		const style = { fontSize: '32px', fill: '#000' }
-		const label = new ScoreLabel(this, x, y, score, style)
-
-		this.add.existing(label)
-
-		return label
-	}
-
     hitBomb(player, bomb)
 	{   
 		if (this.immunity === 0) {
-		this.playerLive-=1
-		this.playerLiveLabel.reduce()
+			gameData.playerLive-=1
+		gameData.playerLiveLabel?.reduce()
 		this.immunity = 1000
 		this.time.addEvent({
 			delay: 1000,
@@ -218,9 +217,8 @@ export default class GameScene extends Phaser.Scene
 			this.immunity = 0
 			}
 		})	
-		if(this.playerLive == 0)
+		if(gameData.playerLive == 0)
 		{ 
-	        const restartButton = this.createRestartButton()
 			this.physics.pause()
 
 			player.setTint(0xff0000)
@@ -239,13 +237,11 @@ export default class GameScene extends Phaser.Scene
 		}
 	}
 	}
-createplayerLive (x, y, Live)
-    {
-const style = { fontSize: '32px', fill: '#000' }
-		const label = new PlayerLabel(this, x, y, Live, style)
 
-		this.add.existing(label)
-
-		return label
+	dead() {
+		this.gameOver = true
+		this.physics.pause()
+		gameData.playerLive = 0
 	}
+
 }
