@@ -16,14 +16,11 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		this.body.setSize(32, 48, false);
 
 		/* START-USER-CTR-CODE */
-		
+		this.setBounceY(0.5)
 		/* END-USER-CTR-CODE */
 	}
 
 	/* START-USER-CODE */
-
-	create() {
-	}
 
 	
 

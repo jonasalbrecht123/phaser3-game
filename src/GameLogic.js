@@ -99,4 +99,19 @@ export default class GameLogic {
 		}
 	}
 	}
+
+    hitEnd(scene) {
+            const maxLevel = 2
+        
+			gameData.level += 1;
+            if (gameData.level > maxLevel) {
+                // Letztes level erreicht
+                return;
+            }
+			gameData.playerLive = 3
+			gameData.playerLiveLabel.setLive(gameData.playerLive)
+			scene.scene.remove(`Level${gameData.level - 1}`);
+            scene.scene.launch(`Level${gameData.level}`);
+		
+    }
 }

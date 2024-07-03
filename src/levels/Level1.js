@@ -238,13 +238,7 @@ export default class Level1 extends Phaser.Scene {
 		// bombCollider
 		this.physics.add.collider(this.bombSpawner.group, this.platforms.list);
 
-		/* this.physics.add.overlap(this.player, this.end.end, () => {
-			gameData.level += 1;
-			gameData.playerLive = 3
-			gameData.playerLiveLabel.setLive(gameData.playerLive)
-			this.scene.remove("Level1");
-			this.scene.launch("Level2");
-		}); */
+		 this.physics.add.overlap(this.player, this.end.end, () => this.gameLogic.hitEnd(this)); 
 	}
 
 

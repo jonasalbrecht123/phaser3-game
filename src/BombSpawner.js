@@ -21,11 +21,12 @@ export default class BombSpawner
 
 	spawn(playerX, playerY)
 	{
-		//const x = (playerX < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400)
+		const randomX = Phaser.Math.Between(-200, 200)
+		const randomY = Phaser.Math.Between(-200, -400)
 
 
         //const bomb = new Bombs(this.scene, playerX, playerY - 200)
-	   	const bomb = this.group.create(playerX, playerY - 200, this.key)
+	   	const bomb = this.group.create(playerX + randomX, playerY + randomY, this.key)
 		//this.group.add(bomb)
         bomb.setBounce(1)
         //bomb.setCollideWorldBounds(true)

@@ -21,9 +21,10 @@
                 "visible"
             ],
             "label": "player",
+            "scope": "CLASS",
             "x": 687,
             "y": 1326,
-            "visible": false
+            "visible": true
         },
         {
             "type": "Container",
@@ -173,6 +174,18 @@
             "angle": -180,
             "width": 543,
             "height": 459
+        },
+        {
+            "prefabId": "b21ec775-9e69-4242-8314-ff71146fdd56",
+            "id": "5e061789-8a61-40b8-a7de-4d6e238821db",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "end",
+            "scope": "CLASS",
+            "x": 1852,
+            "y": 933
         }
     ],
     "plainObjects": [],

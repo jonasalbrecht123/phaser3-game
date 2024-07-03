@@ -16,13 +16,11 @@ export default class Star extends Phaser.Physics.Arcade.Sprite {
 		this.body.setSize(24, 22, false);
 
 		/* START-USER-CTR-CODE */
-		// Write your code here.
+		this.setBounceY(Phaser.Math.FloatBetween(0.6, 0.9))
 		/* END-USER-CTR-CODE */
 	}
 
 	/* START-USER-CODE */
-
-	// Write your code here.
 
 	/* END-USER-CODE */
 }

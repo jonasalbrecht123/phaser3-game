@@ -6,7 +6,9 @@
 import Phaser from "phaser";
 import Player from "../prefabs/Player";
 import Platforms from "../prefabs/Platforms";
+import End from "../prefabs/End";
 /* START-USER-IMPORTS */
+import GameLogic from "../GameLogic";
 /* END-USER-IMPORTS */
 
 export default class Level2 extends Phaser.Scene {
@@ -25,7 +27,7 @@ export default class Level2 extends Phaser.Scene {
 		// player
 		const player = new Player(this, 687, 1326);
 		this.add.existing(player);
-		player.visible = false;
+		player.visible = true;
 
 		// platforms
 		const platforms = this.add.container(0, 0);
@@ -85,13 +87,23 @@ export default class Level2 extends Phaser.Scene {
 		lava_removebg_preview_3.scaleY = 0.3;
 		lava_removebg_preview_3.angle = -180;
 
+		// end
+		const end = new End(this, 1852, 933);
+		this.add.existing(end);
+
+		this.player = player;
 		this.platforms = platforms;
+		this.end = end;
 
 		this.events.emit("scene-awake");
 	}
 
+	/** @type {Player} */
+	player;
 	/** @type {Phaser.GameObjects.Container} */
 	platforms;
+	/** @type {End} */
+	end;
 
 	/* START-USER-CODE */
 
@@ -102,62 +114,38 @@ export default class Level2 extends Phaser.Scene {
 		this.editorCreate();
 
 		for (const platform of this.platforms.list) {
-
+			// @ts-ignore
 			platform.refreshBody();
 		}
-		//this.createColliders()
-		//this.cameras.main.startFollow(this.player)
-		//this.cursors = this.input.keyboard.createCursorKeys();
+		this.createColliders()
+
+		this.cameras.main.startFollow(this.player)
+		this.cursors = this.input.keyboard.createCursorKeys();
+		this.gameLogic = new GameLogic();
 	}
 
 	createColliders()
     {
-		//this.physics.add.collider(this.player, this.platforms.list)
+		this.physics.add.collider(this.player, this.platforms.list)
 		// starsCollider
 		//this.physics.add.collider(this.stars.list, this.platforms.list);
 
 		// playerStarCollider
-		//this.physics.add.overlap(this.player, this.stars.list, this.collectStar, undefined, this);
+		//this.physics.add.overlap(this.player, this.stars.list, (obj1, obj2) => this.gameLogic.collectStar(obj1, obj2, this.bombSpawner), undefined, this);
 
 		// playerBombCollider
-		//this.physics.add.overlap(this.player, this.bombs.list, this.hitBomb, undefined, this);
+		//this.physics.add.overlap(this.player, this.bombSpawner.group, (obj1, obj2) => this.gameLogic.hitBomb(this, obj1, obj2), undefined, this);
 
 		// bombCollider
-		//this.physics.add.collider(this.bombs.list, this.platforms.list);
+		//this.physics.add.collider(this.bombSpawner.group, this.platforms.list);
 
-		//this.physics.add.overlap(this.player, this.end.end, () => {
-		//	gameData.level += 1;
-		//	this.scene.remove("Level1");
-		//	this.scene.launch("Level2");
-		//});
+		this.physics.add.overlap(this.player, this.end.end, () => this.gameLogic.hitEnd(this)); 
 	}
 
-	/* update()
+	 update()
 	{
-        if (this.cursors.left.isDown)
-            {
-                this.player.setVelocityX(-160)
-
-                this.player.anims.play('left', true)
-            }
-            else if (this.cursors.right.isDown)
-            {
-                this.player.setVelocityX(160)
-
-                this.player.anims.play('right', true)
-            }
-            else
-            {
-                this.player.setVelocityX(0)
-
-                this.player.anims.play('turn')
-            }
-
-            if (this.cursors.up.isDown && this.player.body.touching.down)
-            {
-                this.player.setVelocityY(-330)
-            }
-        } */
+        this.gameLogic.update(this.player, this.cursors)
+	}
 
 	/* END-USER-CODE */
 }
