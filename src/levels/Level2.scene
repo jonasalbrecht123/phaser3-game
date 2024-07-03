@@ -1,0 +1,185 @@
+{
+    "id": "2a66d809-6c58-4f57-9c0b-7c1dd91bb669",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Level2",
+        "borderX": -200,
+        "borderWidth": 20000,
+        "borderHeight": 2000
+    },
+    "displayList": [
+        {
+            "prefabId": "45a635f5-4c84-46a4-b763-d276a803252b",
+            "id": "2be336cc-4de4-4e65-a1fe-0fcdabaeb67c",
+            "unlock": [
+                "x",
+                "y",
+                "visible"
+            ],
+            "label": "player",
+            "x": 687,
+            "y": 1326,
+            "visible": false
+        },
+        {
+            "type": "Container",
+            "id": "e62eebd5-a155-4e97-a6ad-704ea0894b3e",
+            "label": "platforms",
+            "scope": "CLASS",
+            "list": [
+                {
+                    "prefabId": "b10a0a2a-c71c-40f8-99e4-ddbd8cab94c2",
+                    "id": "d4b456be-6d73-4e28-b4c3-0efc8b6b8c6e",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "scaleX",
+                        "scaleY"
+                    ],
+                    "label": "platforms_1",
+                    "x": 700,
+                    "y": 1526,
+                    "scaleX": 1,
+                    "scaleY": 5.8
+                },
+                {
+                    "prefabId": "b10a0a2a-c71c-40f8-99e4-ddbd8cab94c2",
+                    "id": "aef6c7aa-f9bf-45d6-8bac-6913be8e3709",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "scaleX",
+                        "scaleY"
+                    ],
+                    "label": "platforms_3",
+                    "x": 1079,
+                    "y": 1526,
+                    "scaleX": 1,
+                    "scaleY": 8.902342010902576
+                },
+                {
+                    "prefabId": "b10a0a2a-c71c-40f8-99e4-ddbd8cab94c2",
+                    "id": "488ccca0-037b-469c-8856-89024d75fbf9",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "platforms_4",
+                    "x": 1317682,
+                    "y": 1526
+                },
+                {
+                    "prefabId": "b10a0a2a-c71c-40f8-99e4-ddbd8cab94c2",
+                    "id": "671555f9-ec93-494c-8b5d-cec3e9ef4a74",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "scaleX",
+                        "scaleY"
+                    ],
+                    "label": "platforms_6",
+                    "x": 1404,
+                    "y": 1633,
+                    "scaleX": 1,
+                    "scaleY": 2.182095839447032
+                },
+                {
+                    "prefabId": "b10a0a2a-c71c-40f8-99e4-ddbd8cab94c2",
+                    "id": "0bc9012e-b478-4d40-9f7a-fb52b8fd1bdc",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "scaleX",
+                        "scaleY"
+                    ],
+                    "label": "platforms_2",
+                    "x": 1722,
+                    "y": 1526,
+                    "scaleX": 1,
+                    "scaleY": 8.979325499491111
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "af39c6d6-0008-4a52-8e71-4ddb71301e6b",
+            "label": "new_Piskel__3_",
+            "texture": {
+                "key": "New Piskel (3)"
+            },
+            "x": 1346,
+            "y": 1351,
+            "scaleX": 3.5,
+            "scaleY": 3.5
+        },
+        {
+            "type": "TileSprite",
+            "id": "e1cc8e68-c035-4bc7-803a-3e7a16d9c508",
+            "label": "lava_removebg_preview",
+            "texture": {
+                "key": "Lava-removebg-preview"
+            },
+            "x": 1340,
+            "y": 1518,
+            "scaleX": 0.3,
+            "scaleY": 0.3,
+            "width": 543,
+            "height": 459
+        },
+        {
+            "type": "TileSprite",
+            "id": "24fd759c-eed4-470a-b455-ce4f15384530",
+            "label": "lava_removebg_preview_1",
+            "texture": {
+                "key": "Lava-removebg-preview"
+            },
+            "x": 1462,
+            "y": 1518,
+            "scaleX": 0.3,
+            "scaleY": 0.3,
+            "width": 543,
+            "height": 459
+        },
+        {
+            "type": "TileSprite",
+            "id": "6e6f045d-c26c-4d24-9580-78e0b554e6ee",
+            "label": "lava_removebg_preview_2",
+            "texture": {
+                "key": "Lava-removebg-preview"
+            },
+            "x": 1462,
+            "y": 1619,
+            "scaleX": 0.3,
+            "scaleY": 0.3,
+            "angle": -180,
+            "width": 543,
+            "height": 459
+        },
+        {
+            "type": "TileSprite",
+            "id": "e97e3627-455a-4dec-b3bc-af26e186cade",
+            "label": "lava_removebg_preview_3",
+            "texture": {
+                "key": "Lava-removebg-preview"
+            },
+            "x": 1340,
+            "y": 1616.739004548566,
+            "scaleX": 0.3,
+            "scaleY": 0.3,
+            "angle": -180,
+            "width": 543,
+            "height": 459
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

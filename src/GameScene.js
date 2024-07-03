@@ -3,6 +3,8 @@ import Phaser from 'phaser'
 import ScoreLabel from './ScoreLabel'
 import BombSpawner from './BombSpawner'
 import PlayerLabel from './PlayerLabel'
+import Level1 from './levels/Level1'
+import Player from './prefabs/Player'
 
 const GROUND_KEY = 'ground'
 const STAR_KEY = 'star'
@@ -10,9 +12,12 @@ const BOMB_KEY = 'bomb'
 const DUDE_KEY = 'dude'
 
 export const gameData = {
+	player: undefined,
 	playerLive: 3,
 	playerLiveLabel: undefined,
-	scoreLabel : undefined
+	scoreLabel : undefined,
+	immunity: 0,
+	level: 1,
 }
 
 export default class GameScene extends Phaser.Scene
@@ -27,8 +32,6 @@ export default class GameScene extends Phaser.Scene
     this.stars = undefined
     this.bombSpawner = undefined
 	this.newlife = 0
-	this.level = 1
-	this.immunity = 0
     this.gameOver = false
     }
 
@@ -43,65 +46,51 @@ export default class GameScene extends Phaser.Scene
 			'assets/dude.png',
 			{ frameWidth: 32, frameHeight: 48 }
 		)
+		this.load.pack('assets', 'assets/asset-pack.json')
 	}
 
 	create()
 	{
 		this.physics.world.setBounds(-300, 0, 10000, 100000)
-		gameData.playerLive = 99
+		gameData.playerLive = 3
 		 
-		this.scene.launch('UIScene')
-
-		this.bombSpawner = new BombSpawner(this, BOMB_KEY)
-		const bombsGroup = this.bombSpawner.group
 		
-		this.player = this.createPlayer()
-		this.stars = this.createStars()
+
+		//this.bombSpawner = new BombSpawner(this, BOMB_KEY)
+		//const bombsGroup = this.bombSpawner.group
+		
+		//this.player = this.createPlayer()
+		//gameData.player = this.player
+		//this.stars = this.createStars()
         
 
-		const platforms = this.createPlatforms()
-		this.cameras.main.startFollow(this.player)
+		//const platforms = this.createPlatforms()
        
 
 		
-        this.physics.add.collider(this.player, bombsGroup, this.hitBomb, null, this)
+        //this.physics.add.collider(this.player, bombsGroup, this.hitBomb, null, this)
 
-		this.physics.add.overlap(this.player, this.stars, this.collectStar, null, this)
+		//this.physics.add.overlap(this.player, this.stars, this.collectStar, null, this)
 
-		const voi = this.scene.scene.add.rectangle(0, 1950, 100000, 50)
-		const borders = this.physics.add.staticGroup()
-		borders.add(voi)
-		this.physics.add.overlap(this.player, borders, this.dead, null, this)
+		//const voi = this.scene.scene.add.rectangle(0, 1950, 100000, 50)
+		//const borders = this.physics.add.staticGroup()
+		//borders.add(voi)
+		//this.physics.add.overlap(this.player, borders, this.dead, null, this)
 
-		this.cursors = this.input.keyboard.createCursorKeys()
+		//this.cursors = this.input.keyboard.createCursorKeys()
+		//const l = new Level1()
+		//this.scene.launch(l)
+		/** @type {Level1} */
+		// @ts-ignore
+		this.level = this.scene.launch('Level1')
+
+		//this.physics.add.collider(this.player, this.level.platforms.list)
+
+		//this.cameras.main.startFollow(this.player)
+
+		this.scene.launch('UIScene')
+
 	}
-
-    update()
-	{
-        if (this.cursors.left.isDown)
-            {
-                this.player.setVelocityX(-160)
-    
-                this.player.anims.play('left', true)
-            }
-            else if (this.cursors.right.isDown)
-            {
-                this.player.setVelocityX(160)
-    
-                this.player.anims.play('right', true)
-            }
-            else
-            {
-                this.player.setVelocityX(0)
-    
-                this.player.anims.play('turn')
-            }
-    
-            if (this.cursors.up.isDown && this.player.body.touching.down)
-            {
-                this.player.setVelocityY(-330)
-            }
-        }
 		
 
         collectStar(player, star)
@@ -113,7 +102,7 @@ export default class GameScene extends Phaser.Scene
 
             if (this.stars.countActive(true) === 0)
             {
-				this.level += 1;
+				gameData.level += 1;
 				//this.platforms.children.iterate((child) => {
 				//	child.destroy()
 				//})
@@ -144,13 +133,13 @@ export default class GameScene extends Phaser.Scene
 		this.platforms.create(1800, 1568, GROUND_KEY).setScale(2).refreshBody()
 		this.platforms.create(2400, 1568, GROUND_KEY).setScale(2).refreshBody()
 	
-		if (this.level === 1) {
+		if (gameData.level === 1) {
 			this.platforms.create(600, 1400, GROUND_KEY)
 			this.platforms.create(1400, 1300, GROUND_KEY)
 			this.platforms.create(50, 1250, GROUND_KEY)
 			this.platforms.create(750, 1220, GROUND_KEY)
 			this.platforms.create(2250, 1220, GROUND_KEY)
-		} else if (this.level === 2) {
+		} else if (gameData.level === 2) {
 			this.platforms.create(600, 1400, GROUND_KEY)
 			this.platforms.create(1400, 1300, GROUND_KEY)
 			this.platforms.create(50, 1250, GROUND_KEY)
@@ -165,7 +154,8 @@ export default class GameScene extends Phaser.Scene
 
     createPlayer()
     {
-		const player = this.physics.add.sprite(100, 1450, DUDE_KEY)
+		const player = new Player(this, 79, 1465);
+		//const player = this.physics.add.sprite(100, 1450, DUDE_KEY)
 		player.setBounce(0.2)
 		player.setCollideWorldBounds(true)
 
@@ -207,14 +197,14 @@ export default class GameScene extends Phaser.Scene
 
     hitBomb(player, bomb)
 	{   
-		if (this.immunity === 0) {
+		if (gameData.immunity === 0) {
 			gameData.playerLive-=1
 		gameData.playerLiveLabel?.reduce()
-		this.immunity = 1000
+		gameData.immunity = 1000
 		this.time.addEvent({
 			delay: 1000,
 			callback: () => {
-			this.immunity = 0
+			gameData.immunity = 0
 			}
 		})	
 		if(gameData.playerLive == 0)

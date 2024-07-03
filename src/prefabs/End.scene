@@ -1,0 +1,62 @@
+{
+    "id": "b21ec775-9e69-4242-8314-ff71146fdd56",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "generateAwakeHandler": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderX": -200,
+        "borderWidth": 20000,
+        "borderHeight": 2000
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "003fdf55-5e04-44b7-88ab-3858b9d248da",
+            "label": "container_1",
+            "x": 739.1999225444039,
+            "y": 542.5305074580895,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "1d72ef4c-6113-4495-ba66-1400d02a095b",
+                    "label": "new_Piskel__1_",
+                    "texture": {
+                        "key": "New Piskel (1)"
+                    },
+                    "x": 0.8000774555961243,
+                    "y": -0.5305074580894598,
+                    "scaleX": 2,
+                    "scaleY": 2
+                },
+                {
+                    "type": "ArcadeImage",
+                    "id": "aa2bfb97-bb1a-434e-b2f7-5cda27bc6441",
+                    "label": "end",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "end"
+                    },
+                    "x": 1.8000774555961243,
+                    "y": 1.4694925419105402,
+                    "scaleX": 0.2,
+                    "scaleY": 0.2,
+                    "moves": false,
+                    "allowGravity": false,
+                    "body.width": 360,
+                    "body.height": 360
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}
