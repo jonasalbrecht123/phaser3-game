@@ -12,6 +12,7 @@ const config = {
 	parent: 'app',
 	width: 800,
 	height: 600,
+	antialias: false,
 	physics: {
 		default: 'arcade',
 		arcade: {

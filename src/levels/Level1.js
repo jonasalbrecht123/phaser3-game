@@ -203,7 +203,7 @@ export default class Level1 extends Phaser.Scene {
 			// @ts-ignore
 			platform.refreshBody();
 		}
-		this.gameLogic = new GameLogic();
+		this.gameLogic = new GameLogic(this);
 		this.bombSpawner = new BombSpawner(this, BOMB_KEY)
 		this.createColliders()
 
@@ -233,12 +233,12 @@ export default class Level1 extends Phaser.Scene {
 		this.physics.add.overlap(this.player, this.stars.list, (obj1, obj2) => this.gameLogic.collectStar(obj1, obj2, this.bombSpawner), undefined, this);
 
 		// playerBombCollider
-		this.physics.add.overlap(this.player, this.bombSpawner.group, (obj1, obj2) => this.gameLogic.hitBomb(this, obj1, obj2), undefined, this);
+		this.physics.add.overlap(this.player, this.bombSpawner.group, (obj1, obj2) => this.gameLogic.hitBomb(obj1, obj2), undefined, this);
 
 		// bombCollider
 		this.physics.add.collider(this.bombSpawner.group, this.platforms.list);
 
-		 this.physics.add.overlap(this.player, this.end.end, () => this.gameLogic.hitEnd(this)); 
+		 this.physics.add.overlap(this.player, this.end.end, () => this.gameLogic.hitEnd()); 
 	}
 
 

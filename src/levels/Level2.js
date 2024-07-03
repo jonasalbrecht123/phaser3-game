@@ -7,6 +7,7 @@ import Phaser from "phaser";
 import Player from "../prefabs/Player";
 import Platforms from "../prefabs/Platforms";
 import End from "../prefabs/End";
+import Stachel from "../prefabs/Stachel";
 /* START-USER-IMPORTS */
 import GameLogic from "../GameLogic";
 /* END-USER-IMPORTS */
@@ -60,11 +61,6 @@ export default class Level2 extends Phaser.Scene {
 		platforms_2.scaleY = 8.979325499491111;
 		platforms.add(platforms_2);
 
-		// new_Piskel__3_
-		const new_Piskel__3_ = this.add.image(1346, 1351, "New Piskel (3)");
-		new_Piskel__3_.scaleX = 3.5;
-		new_Piskel__3_.scaleY = 3.5;
-
 		// lava_removebg_preview
 		const lava_removebg_preview = this.add.tileSprite(1340, 1518, 543, 459, "Lava-removebg-preview");
 		lava_removebg_preview.scaleX = 0.3;
@@ -91,9 +87,17 @@ export default class Level2 extends Phaser.Scene {
 		const end = new End(this, 1852, 933);
 		this.add.existing(end);
 
+		// stachel_container
+		const stachel_container = this.add.container(0, 0);
+
+		// stachel
+		const stachel = new Stachel(this, 751, 1419);
+		stachel_container.add(stachel);
+
 		this.player = player;
 		this.platforms = platforms;
 		this.end = end;
+		this.stachel_container = stachel_container;
 
 		this.events.emit("scene-awake");
 	}
@@ -104,6 +108,8 @@ export default class Level2 extends Phaser.Scene {
 	platforms;
 	/** @type {End} */
 	end;
+	/** @type {Phaser.GameObjects.Container} */
+	stachel_container;
 
 	/* START-USER-CODE */
 
@@ -112,20 +118,27 @@ export default class Level2 extends Phaser.Scene {
 	create() {
 
 		this.editorCreate();
+		this.gameLogic = new GameLogic(this);
 
 		for (const platform of this.platforms.list) {
 			// @ts-ignore
 			platform.refreshBody();
 		}
+		for (const stachel of this.stachel_container.list) {
+			// @ts-ignore
+			stachel.refreshBody();
+		}
 		this.createColliders()
 
 		this.cameras.main.startFollow(this.player)
 		this.cursors = this.input.keyboard.createCursorKeys();
-		this.gameLogic = new GameLogic();
 	}
 
 	createColliders()
     {
+		// stachelCollider
+		this.physics.add.collider(this.player, this.stachel_container.list, () => this.gameLogic.hitStachel(this.player));
+
 		this.physics.add.collider(this.player, this.platforms.list)
 		// starsCollider
 		//this.physics.add.collider(this.stars.list, this.platforms.list);
@@ -139,7 +152,7 @@ export default class Level2 extends Phaser.Scene {
 		// bombCollider
 		//this.physics.add.collider(this.bombSpawner.group, this.platforms.list);
 
-		this.physics.add.overlap(this.player, this.end.end, () => this.gameLogic.hitEnd(this)); 
+		this.physics.add.overlap(this.player, this.end.end, () => this.gameLogic.hitEnd()); 
 	}
 
 	 update()

@@ -106,18 +106,6 @@
             ]
         },
         {
-            "type": "Image",
-            "id": "af39c6d6-0008-4a52-8e71-4ddb71301e6b",
-            "label": "new_Piskel__3_",
-            "texture": {
-                "key": "New Piskel (3)"
-            },
-            "x": 1346,
-            "y": 1351,
-            "scaleX": 3.5,
-            "scaleY": 3.5
-        },
-        {
             "type": "TileSprite",
             "id": "e1cc8e68-c035-4bc7-803a-3e7a16d9c508",
             "label": "lava_removebg_preview",
@@ -186,6 +174,25 @@
             "scope": "CLASS",
             "x": 1852,
             "y": 933
+        },
+        {
+            "type": "Container",
+            "id": "029b62df-be42-475e-9844-e6658be5457d",
+            "label": "stachel_container",
+            "scope": "CLASS",
+            "list": [
+                {
+                    "prefabId": "09f9a345-a282-4e08-9d73-e2b4d1826e14",
+                    "id": "207a0916-69d7-40f0-b915-18e677c7a895",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "stachel",
+                    "x": 751,
+                    "y": 1419
+                }
+            ]
         }
     ],
     "plainObjects": [],

@@ -1,9 +1,11 @@
 import { gameData } from "./GameScene"
+import Level1 from "./levels/Level1"
+import Level2 from "./levels/Level2"
 import Player from "./prefabs/Player"
 
 export default class GameLogic {
-    constructor() {
-
+    constructor( /** @type {Level1 | Level2} */ scene) {
+        this.scene = scene;
     }
 
     update(
@@ -42,20 +44,6 @@ export default class GameLogic {
 
         gameData.scoreLabel.add(10)
         this.newlife +=1
-
-       // if (this.stars.countActive(true) === 0)
-       // {
-            //gameData.level += 1;
-            //this.platforms.children.iterate((child) => {
-            //	child.destroy()
-            //})
-            //this.platforms.clear()
-            //this.createPlatforms()
-            //  A new batch of stars to collect
-         //   this.stars.children.iterate((child) => {
-         //       child.enableBody(true, child.x, 1000, true, true)
-           // })
-       // }
         
         if (this.newlife === 5)
         {
@@ -67,40 +55,13 @@ export default class GameLogic {
         bombSpawner.spawn(player.x, player.y)
     }
 
-    hitBomb(scene, player, bomb)
+    hitBomb(player, bomb)
 	{   
-		if (gameData.immunity === 0) {
-			gameData.playerLive-=1
-		gameData.playerLiveLabel?.reduce()
-		gameData.immunity = 1000
-		scene.time.addEvent({
-			delay: 1000,
-			callback: () => {
-			gameData.immunity = 0
-			}
-		})	
-		if(gameData.playerLive == 0)
-		{ 
-			scene.physics.pause()
-
-			player.setTint(0xff0000)
-
-			player.anims.play('turn')
-		
-			this.gameOver = true
-		}else {
-			player.setTint(0xff0000)
-			scene.time.addEvent({
-			delay: 500,
-			callback: () => {
-				player.setTint()
-			}
-			})
-		}
+		this.takeDamage();
 	}
-	}
+	
 
-    hitEnd(scene) {
+    hitEnd() {
             const maxLevel = 2
         
 			gameData.level += 1;
@@ -110,8 +71,45 @@ export default class GameLogic {
             }
 			gameData.playerLive = 3
 			gameData.playerLiveLabel.setLive(gameData.playerLive)
-			scene.scene.remove(`Level${gameData.level - 1}`);
-            scene.scene.launch(`Level${gameData.level}`);
+			this.scene.scene.remove(`Level${gameData.level - 1}`);
+            this.scene.scene.launch(`Level${gameData.level}`);
 		
+    }
+
+    hitStachel( /** @type {Player} */ player) {
+        this.takeDamage();
+    }
+
+    takeDamage() {
+        if (gameData.immunity === 0) {
+			gameData.playerLive-=1
+		gameData.playerLiveLabel?.reduce()
+		gameData.immunity = 1000
+		this.scene.time.addEvent({
+			delay: 1000,
+			callback: () => {
+			gameData.immunity = 0
+			}
+		})	
+		if(gameData.playerLive == 0)
+		{ 
+			this.scene.physics.pause()
+
+			this.scene.player.setTint(0xff0000)
+
+			this.scene.player.anims.play('turn')
+		
+			this.gameOver = true
+		}else {
+			this.scene.player.setTint(0xff0000)
+			this.scene.time.addEvent({
+			delay: 500,
+			callback: () => {
+				this.scene.player.setTint()
+			}
+			})
+		}
+        
+        }
     }
 }

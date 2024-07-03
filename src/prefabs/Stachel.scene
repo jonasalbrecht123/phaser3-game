@@ -1,0 +1,40 @@
+{
+    "id": "09f9a345-a282-4e08-9d73-e2b4d1826e14",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderX": -200,
+        "borderWidth": 20000,
+        "borderHeight": 2000
+    },
+    "displayList": [
+        {
+            "type": "ArcadeImage",
+            "id": "81a9e298-5775-4865-ad10-db167c8cdd1a",
+            "label": "new_Piskel__3_",
+            "texture": {
+                "key": "New Piskel (3)"
+            },
+            "x": 406,
+            "y": 254,
+            "scaleX": 2,
+            "scaleY": 2,
+            "physicsType": 1,
+            "moves": false,
+            "allowGravity": false,
+            "body.width": 16,
+            "body.height": 16
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}
