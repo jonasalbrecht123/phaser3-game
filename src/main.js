@@ -10,7 +10,7 @@ import Level2 from './levels/Level2'
 const config = {
 	type: Phaser.AUTO,
 	parent: 'app',
-	width: 800,
+	width: 1200,
 	height: 600,
 	antialias: false,
 	physics: {

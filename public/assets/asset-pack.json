@@ -12,6 +12,11 @@
                 "key": "bomb"
             },
             {
+                "url": "assets/Cloud.png",
+                "type": "image",
+                "key": "Cloud"
+            },
+            {
                 "url": "assets/dude.png",
                 "frameConfig": {
                     "frameWidth": 32,
@@ -63,6 +68,11 @@
                 "url": "assets/star.png",
                 "type": "image",
                 "key": "star"
+            },
+            {
+                "url": "assets/Stein boden.png",
+                "type": "image",
+                "key": "Stein boden"
             }
         ]
     },

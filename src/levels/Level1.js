@@ -6,9 +6,9 @@
 import Phaser from "phaser";
 import Platforms from "../prefabs/Platforms";
 import Star from "../prefabs/Star";
-import Heart from "../prefabs/Heart";
 import End from "../prefabs/End";
 import Player from "../prefabs/Player";
+import Heart from "../prefabs/Heart";
 /* START-USER-IMPORTS */
 import Bomb from "../prefabs/Bombs"
 import BombSpawner from "../BombSpawner";
@@ -150,17 +150,20 @@ export default class Level1 extends Phaser.Scene {
 		// bombs
 		const bombs = this.add.layer();
 
-		// heart
-		const heart = new Heart(this, 1750, 1366);
-		this.add.existing(heart);
-
 		// end
-		const end = new End(this, 308, 1478);
+		const end = new End(this, 1682, 890);
 		this.add.existing(end);
 
 		// player
 		const player = new Player(this, 16, 1398);
 		this.add.existing(player);
+
+		// hearts
+		const hearts = this.add.layer();
+
+		// heart
+		const heart = new Heart(this, 969, 1487);
+		hearts.add(heart);
 
 		// collider
 		this.physics.add.collider(player, end, this.hitEnd);
@@ -170,6 +173,7 @@ export default class Level1 extends Phaser.Scene {
 		this.bombs = bombs;
 		this.end = end;
 		this.player = player;
+		this.hearts = hearts;
 
 		this.events.emit("scene-awake");
 	}
@@ -184,6 +188,8 @@ export default class Level1 extends Phaser.Scene {
 	end;
 	/** @type {Player} */
 	player;
+	/** @type {Phaser.GameObjects.Layer} */
+	hearts;
 
 	/* START-USER-CODE */
 
@@ -202,6 +208,10 @@ export default class Level1 extends Phaser.Scene {
 
 			// @ts-ignore
 			platform.refreshBody();
+		}
+		for (const obj of this.hearts.list) {
+			// @ts-ignore
+			obj.refreshBody();
 		}
 		this.gameLogic = new GameLogic(this);
 		this.bombSpawner = new BombSpawner(this, BOMB_KEY)
@@ -238,7 +248,9 @@ export default class Level1 extends Phaser.Scene {
 		// bombCollider
 		this.physics.add.collider(this.bombSpawner.group, this.platforms.list);
 
-		 this.physics.add.overlap(this.player, this.end.end, () => this.gameLogic.hitEnd()); 
+		this.physics.add.overlap(this.player, this.end.end, () => this.gameLogic.hitEnd()); 
+
+		this.physics.add.overlap(this.player, this.hearts.list, (pl, heart) => this.gameLogic.hitHeart(heart)); 
 	}
 
 

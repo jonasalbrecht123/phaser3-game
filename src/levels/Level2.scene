@@ -23,7 +23,7 @@
             "label": "player",
             "scope": "CLASS",
             "x": 687,
-            "y": 1326,
+            "y": 1291,
             "visible": true
         },
         {
@@ -43,24 +43,9 @@
                     ],
                     "label": "platforms_1",
                     "x": 700,
-                    "y": 1526,
-                    "scaleX": 1,
-                    "scaleY": 5.8
-                },
-                {
-                    "prefabId": "b10a0a2a-c71c-40f8-99e4-ddbd8cab94c2",
-                    "id": "aef6c7aa-f9bf-45d6-8bac-6913be8e3709",
-                    "unlock": [
-                        "x",
-                        "y",
-                        "scaleX",
-                        "scaleY"
-                    ],
-                    "label": "platforms_3",
-                    "x": 1079,
-                    "y": 1526,
-                    "scaleX": 1,
-                    "scaleY": 8.902342010902576
+                    "y": 1477,
+                    "scaleX": 0.9966715830603535,
+                    "scaleY": 6.265715774250138
                 },
                 {
                     "prefabId": "b10a0a2a-c71c-40f8-99e4-ddbd8cab94c2",
@@ -75,22 +60,22 @@
                 },
                 {
                     "prefabId": "b10a0a2a-c71c-40f8-99e4-ddbd8cab94c2",
-                    "id": "671555f9-ec93-494c-8b5d-cec3e9ef4a74",
+                    "id": "1a6c78c6-aaf3-4ab7-84f9-1bfc8ee94319",
                     "unlock": [
                         "x",
                         "y",
                         "scaleX",
                         "scaleY"
                     ],
-                    "label": "platforms_6",
-                    "x": 1404,
-                    "y": 1633,
-                    "scaleX": 1,
-                    "scaleY": 2.182095839447032
+                    "label": "platforms_3",
+                    "x": 1081,
+                    "y": 1477,
+                    "scaleX": 0.9966715830603535,
+                    "scaleY": 6.265715774250138
                 },
                 {
                     "prefabId": "b10a0a2a-c71c-40f8-99e4-ddbd8cab94c2",
-                    "id": "0bc9012e-b478-4d40-9f7a-fb52b8fd1bdc",
+                    "id": "e2f37de8-74d7-4d8c-858b-2a48a94122f5",
                     "unlock": [
                         "x",
                         "y",
@@ -98,70 +83,27 @@
                         "scaleY"
                     ],
                     "label": "platforms_2",
-                    "x": 1722,
-                    "y": 1526,
-                    "scaleX": 1,
-                    "scaleY": 8.979325499491111
+                    "x": 1984,
+                    "y": 1477,
+                    "scaleX": 0.6198819463138973,
+                    "scaleY": 6.265715774250138
+                },
+                {
+                    "prefabId": "b10a0a2a-c71c-40f8-99e4-ddbd8cab94c2",
+                    "id": "e7e82091-38e0-4cc3-826b-0460fb15a39a",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "scaleX",
+                        "scaleY"
+                    ],
+                    "label": "platforms_5",
+                    "x": 3374,
+                    "y": 1101,
+                    "scaleX": 0.6198819463138973,
+                    "scaleY": 6.265715774250138
                 }
             ]
-        },
-        {
-            "type": "TileSprite",
-            "id": "e1cc8e68-c035-4bc7-803a-3e7a16d9c508",
-            "label": "lava_removebg_preview",
-            "texture": {
-                "key": "Lava-removebg-preview"
-            },
-            "x": 1340,
-            "y": 1518,
-            "scaleX": 0.3,
-            "scaleY": 0.3,
-            "width": 543,
-            "height": 459
-        },
-        {
-            "type": "TileSprite",
-            "id": "24fd759c-eed4-470a-b455-ce4f15384530",
-            "label": "lava_removebg_preview_1",
-            "texture": {
-                "key": "Lava-removebg-preview"
-            },
-            "x": 1462,
-            "y": 1518,
-            "scaleX": 0.3,
-            "scaleY": 0.3,
-            "width": 543,
-            "height": 459
-        },
-        {
-            "type": "TileSprite",
-            "id": "6e6f045d-c26c-4d24-9580-78e0b554e6ee",
-            "label": "lava_removebg_preview_2",
-            "texture": {
-                "key": "Lava-removebg-preview"
-            },
-            "x": 1462,
-            "y": 1619,
-            "scaleX": 0.3,
-            "scaleY": 0.3,
-            "angle": -180,
-            "width": 543,
-            "height": 459
-        },
-        {
-            "type": "TileSprite",
-            "id": "e97e3627-455a-4dec-b3bc-af26e186cade",
-            "label": "lava_removebg_preview_3",
-            "texture": {
-                "key": "Lava-removebg-preview"
-            },
-            "x": 1340,
-            "y": 1616.739004548566,
-            "scaleX": 0.3,
-            "scaleY": 0.3,
-            "angle": -180,
-            "width": 543,
-            "height": 459
         },
         {
             "prefabId": "b21ec775-9e69-4242-8314-ff71146fdd56",
@@ -172,8 +114,8 @@
             ],
             "label": "end",
             "scope": "CLASS",
-            "x": 1852,
-            "y": 933
+            "x": 2065,
+            "y": 103
         },
         {
             "type": "Container",
@@ -190,9 +132,357 @@
                     ],
                     "label": "stachel",
                     "x": 751,
-                    "y": 1419
+                    "y": 1361
+                },
+                {
+                    "prefabId": "09f9a345-a282-4e08-9d73-e2b4d1826e14",
+                    "id": "1357d6a0-e13a-41d2-88d2-54ad95a290d2",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "stachel_1",
+                    "x": 3266,
+                    "y": 985
+                },
+                {
+                    "prefabId": "09f9a345-a282-4e08-9d73-e2b4d1826e14",
+                    "id": "62245891-88d2-4969-9e5c-c9872eda0559",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "stachel_2",
+                    "x": 3295,
+                    "y": 985
+                },
+                {
+                    "prefabId": "09f9a345-a282-4e08-9d73-e2b4d1826e14",
+                    "id": "43a062b8-9a49-4caa-9e73-3d63462da222",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "stachel_3",
+                    "x": 3325,
+                    "y": 985
+                },
+                {
+                    "prefabId": "09f9a345-a282-4e08-9d73-e2b4d1826e14",
+                    "id": "a811faf6-ab1d-43fd-9d70-709f1a7c0236",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "stachel_4",
+                    "x": 3401,
+                    "y": 985
+                },
+                {
+                    "prefabId": "09f9a345-a282-4e08-9d73-e2b4d1826e14",
+                    "id": "7dc5707a-5bf9-49e7-bbb4-9b432fea7198",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "stachel_5",
+                    "x": 3434,
+                    "y": 985
                 }
             ]
+        },
+        {
+            "type": "Image",
+            "id": "1a251edb-de4a-4e81-8ee0-4c7c6f362933",
+            "label": "stein_boden",
+            "texture": {
+                "key": "Stein boden"
+            },
+            "x": 1359,
+            "y": 1533,
+            "scaleX": 1.1790779621865843,
+            "scaleY": 0.4976786900835035
+        },
+        {
+            "type": "Image",
+            "id": "ff5fd0f8-8615-46eb-a251-a0fb33e89daa",
+            "label": "stein_boden_1",
+            "texture": {
+                "key": "Stein boden"
+            },
+            "x": 1602,
+            "y": 1533,
+            "scaleX": 1.1790779621865843,
+            "scaleY": 0.4976786900835035
+        },
+        {
+            "type": "Image",
+            "id": "c237d03f-df50-49ac-a375-e182667421b1",
+            "label": "stein_boden_2",
+            "texture": {
+                "key": "Stein boden"
+            },
+            "x": 1115,
+            "y": 1533,
+            "scaleX": 1.1790779621865795,
+            "scaleY": 0.4976786900835035
+        },
+        {
+            "type": "Image",
+            "id": "a07a049b-593a-444f-8781-27ff96f037ff",
+            "label": "stein_boden_3",
+            "texture": {
+                "key": "Stein boden"
+            },
+            "x": 871,
+            "y": 1533,
+            "scaleX": 1.1790779621865775,
+            "scaleY": 0.4976786900835035
+        },
+        {
+            "type": "Image",
+            "id": "2365a3b3-0cb5-480d-8458-5dab70977f64",
+            "label": "stein_boden_4",
+            "texture": {
+                "key": "Stein boden"
+            },
+            "x": 628,
+            "y": 1533,
+            "scaleX": 1.1790779621865797,
+            "scaleY": 0.4976786900835035
+        },
+        {
+            "type": "Image",
+            "id": "6b66b985-fcf2-4f51-99ce-e1cbd9d8e82f",
+            "label": "stein_boden_5",
+            "texture": {
+                "key": "Stein boden"
+            },
+            "x": 1858,
+            "y": 1533,
+            "scaleX": 1.1790779621865843,
+            "scaleY": 0.4976786900835035
+        },
+        {
+            "type": "Container",
+            "id": "8028cb7e-5969-4d61-b753-6b3a3a516f10",
+            "label": "clouds",
+            "scope": "CLASS",
+            "list": [
+                {
+                    "prefabId": "b4234dfc-72d4-4007-9998-83facc234c1e",
+                    "id": "d30287d1-2704-4803-8d97-6729123f07fb",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "scaleX",
+                        "scaleY",
+                        "maxmove",
+                        "velocity"
+                    ],
+                    "label": "cloud",
+                    "maxmove": 250,
+                    "velocity": 70,
+                    "x": 1077,
+                    "y": 1269,
+                    "scaleX": 2,
+                    "scaleY": 2
+                },
+                {
+                    "prefabId": "b4234dfc-72d4-4007-9998-83facc234c1e",
+                    "id": "5aa23d95-2470-45de-8dcb-0f965a7a5b18",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "scaleX",
+                        "scaleY",
+                        "maxmove",
+                        "velocity"
+                    ],
+                    "label": "cloud_1",
+                    "maxmove": 300,
+                    "velocity": 80,
+                    "x": 1306,
+                    "y": 1160,
+                    "scaleX": 2,
+                    "scaleY": 2
+                },
+                {
+                    "prefabId": "b4234dfc-72d4-4007-9998-83facc234c1e",
+                    "id": "c8f7e850-f9b4-449c-87e1-ec87ce0f78ba",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "scaleX",
+                        "scaleY",
+                        "maxmove",
+                        "velocity"
+                    ],
+                    "label": "cloud_2",
+                    "maxmove": 400,
+                    "velocity": 80,
+                    "x": 1697,
+                    "y": 1241,
+                    "scaleX": 2,
+                    "scaleY": 2
+                },
+                {
+                    "prefabId": "b4234dfc-72d4-4007-9998-83facc234c1e",
+                    "id": "199262d3-4fcf-4441-a142-ccf9bccb9488",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "scaleX",
+                        "scaleY",
+                        "maxmove",
+                        "velocity"
+                    ],
+                    "label": "cloud_3",
+                    "maxmove": 400,
+                    "velocity": 80,
+                    "x": 2235,
+                    "y": 1125,
+                    "scaleX": 2,
+                    "scaleY": 2
+                },
+                {
+                    "prefabId": "b4234dfc-72d4-4007-9998-83facc234c1e",
+                    "id": "063054f8-db39-464c-aef7-1167fcc08286",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "scaleX",
+                        "scaleY",
+                        "maxmove",
+                        "velocity"
+                    ],
+                    "label": "cloud_4",
+                    "maxmove": 400,
+                    "velocity": 80,
+                    "x": 2659,
+                    "y": 1035,
+                    "scaleX": 2,
+                    "scaleY": 2
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "id": "f2404df0-54c0-419e-8d6a-eda62c6edd14",
+            "label": "lava_container",
+            "scope": "CLASS",
+            "list": [
+                {
+                    "type": "ArcadeImage",
+                    "id": "e1cc8e68-c035-4bc7-803a-3e7a16d9c508",
+                    "label": "lava_removebg_preview",
+                    "texture": {
+                        "key": "Lava-removebg-preview"
+                    },
+                    "x": 1341,
+                    "y": 1474,
+                    "scaleX": 0.29754812758203547,
+                    "scaleY": 0.3324682019039274,
+                    "physicsType": 1,
+                    "body.width": 543,
+                    "body.height": 459,
+                    "body.offset.y": 125
+                },
+                {
+                    "type": "ArcadeImage",
+                    "id": "24fd759c-eed4-470a-b455-ce4f15384530",
+                    "label": "lava_removebg_preview_1",
+                    "texture": {
+                        "key": "Lava-removebg-preview"
+                    },
+                    "x": 1462,
+                    "y": 1474,
+                    "scaleX": 0.29754812758203547,
+                    "scaleY": 0.3324682019039274,
+                    "physicsType": 1,
+                    "body.width": 543,
+                    "body.height": 459,
+                    "body.offset.y": 127
+                },
+                {
+                    "type": "ArcadeImage",
+                    "id": "99332eed-e16d-4f8f-9be9-de0fc3f23b74",
+                    "label": "lava_removebg_preview_2",
+                    "texture": {
+                        "key": "Lava-removebg-preview"
+                    },
+                    "x": 1583,
+                    "y": 1474,
+                    "scaleX": 0.29754812758203547,
+                    "scaleY": 0.3324682019039274,
+                    "physicsType": 1,
+                    "body.width": 543,
+                    "body.height": 459,
+                    "body.offset.y": 127
+                },
+                {
+                    "type": "ArcadeImage",
+                    "id": "fcbd0247-5b63-404f-b3d1-709c165608c2",
+                    "label": "lava_removebg_preview_3",
+                    "texture": {
+                        "key": "Lava-removebg-preview"
+                    },
+                    "x": 1704,
+                    "y": 1474,
+                    "scaleX": 0.29754812758203547,
+                    "scaleY": 0.3324682019039274,
+                    "physicsType": 1,
+                    "body.width": 543,
+                    "body.height": 459,
+                    "body.offset.y": 127
+                },
+                {
+                    "type": "ArcadeImage",
+                    "id": "d117327f-ffcc-4d2d-a50c-fb3fbc2eb12a",
+                    "label": "lava_removebg_preview_4",
+                    "texture": {
+                        "key": "Lava-removebg-preview"
+                    },
+                    "x": 1799.5052490234375,
+                    "y": 1474,
+                    "scaleX": 0.29754812758203547,
+                    "scaleY": 0.3324682019039274,
+                    "physicsType": 1,
+                    "body.width": 543,
+                    "body.height": 459,
+                    "body.offset.y": 127
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "99257eb9-faa1-453a-b16a-15262750827c",
+            "label": "stein_boden_6",
+            "texture": {
+                "key": "Stein boden"
+            },
+            "x": 2112,
+            "y": 1533,
+            "scaleX": 1.1790779621865843,
+            "scaleY": 0.4976786900835035
+        },
+        {
+            "type": "Image",
+            "id": "ca15b025-9421-4e4f-9242-a445625e1f87",
+            "label": "stein_boden_7",
+            "texture": {
+                "key": "Stein boden"
+            },
+            "x": 3376,
+            "y": 1171,
+            "scaleX": 1.1790779621865843,
+            "scaleY": 0.4976786900835035
+        },
+        {
+            "type": "Layer",
+            "id": "2f473de2-6362-48de-84a5-ae6b7df73800",
+            "label": "hearts",
+            "scope": "CLASS"
         }
     ],
     "plainObjects": [],

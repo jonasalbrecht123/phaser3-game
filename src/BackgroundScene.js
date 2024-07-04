@@ -9,6 +9,7 @@ export default class Background extends Phaser.Scene   {
 
     create() {
         this.add.image(400, 300, 'sky')
+        this.add.image(800, 300, 'sky')
 
 
         this.scene.launch('GameScene')    

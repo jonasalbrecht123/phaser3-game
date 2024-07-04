@@ -1,0 +1,61 @@
+{
+    "id": "b4234dfc-72d4-4007-9998-83facc234c1e",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderX": -200,
+        "borderWidth": 20000,
+        "borderHeight": 2000
+    },
+    "displayList": [
+        {
+            "type": "ArcadeImage",
+            "id": "0602f69a-be94-40b0-b90f-52821b572e85",
+            "label": "arcadeimage_1",
+            "texture": {
+                "key": "Cloud"
+            },
+            "x": 129,
+            "y": 126,
+            "allowGravity": false,
+            "down": false,
+            "pushable": false,
+            "body.width": 96,
+            "body.height": 19,
+            "body.offset.y": 40
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "prefabProperties": [
+        {
+            "name": "maxmove",
+            "label": "Maximale Bewegung",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "velocity",
+            "label": "Geschwindigkeit",
+            "tooltip": "",
+            "defValue": 50,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        }
+    ]
+}

@@ -80,6 +80,17 @@ export default class GameLogic {
         this.takeDamage();
     }
 
+    hitLava() {
+        gameData.playerLive = 0;
+        this.scene.physics.pause();
+    }
+
+    hitHeart(/** @type {Phaser.Types.Physics.Arcade.GameObjectWithBody} */ heart) {
+        gameData.playerLive +=1
+        gameData.playerLiveLabel.setLive(gameData.playerLive)
+        heart.destroy()
+    }
+
     takeDamage() {
         if (gameData.immunity === 0) {
 			gameData.playerLive-=1

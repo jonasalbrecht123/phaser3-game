@@ -13,7 +13,7 @@
     },
     "displayList": [
         {
-            "type": "Image",
+            "type": "ArcadeImage",
             "id": "6d2dc50b-d80b-461d-a743-9db5afae6f6b",
             "label": "heart",
             "texture": {
@@ -24,7 +24,13 @@
             "scaleX": 2.5,
             "scaleY": 2.5,
             "originX": 0.4812500000000002,
-            "originY": 0.6971153846153847
+            "originY": 0.6971153846153847,
+            "physicsType": 1,
+            "radius": 5,
+            "body.width": 11,
+            "body.height": 10,
+            "body.offset.x": 56,
+            "body.offset.y": 85
         }
     ],
     "plainObjects": [],

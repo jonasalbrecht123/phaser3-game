@@ -334,17 +334,6 @@
             "scope": "CLASS"
         },
         {
-            "prefabId": "280e859c-a4cd-48be-94f8-26c3fe86f27e",
-            "id": "03af126d-78d7-493d-a416-efc86ad3fd8e",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "heart",
-            "x": 1750,
-            "y": 1366
-        },
-        {
             "prefabId": "b21ec775-9e69-4242-8314-ff71146fdd56",
             "id": "bc31c676-233a-445e-92e5-9ae648997af3",
             "unlock": [
@@ -353,8 +342,8 @@
             ],
             "label": "end",
             "scope": "CLASS",
-            "x": 308,
-            "y": 1478
+            "x": 1682,
+            "y": 890
         },
         {
             "prefabId": "45a635f5-4c84-46a4-b763-d276a803252b",
@@ -367,6 +356,25 @@
             "scope": "CLASS",
             "x": 16,
             "y": 1398
+        },
+        {
+            "type": "Layer",
+            "id": "9e3e73b1-1620-47bc-bacc-c2e49a07aec7",
+            "label": "hearts",
+            "scope": "CLASS",
+            "list": [
+                {
+                    "prefabId": "280e859c-a4cd-48be-94f8-26c3fe86f27e",
+                    "id": "b7b3dfcf-bc8b-4a6c-9ebf-1a122cd74ce2",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "heart",
+                    "x": 969,
+                    "y": 1487
+                }
+            ]
         }
     ],
     "plainObjects": [
