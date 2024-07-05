@@ -156,6 +156,12 @@ export default class Level2 extends Phaser.Scene {
 		cloud_4.scaleY = 2;
 		clouds.add(cloud_4);
 
+		// cloud_5
+		const cloud_5 = new Cloud(this, 3814, 929);
+		cloud_5.scaleX = 2;
+		cloud_5.scaleY = 2;
+		clouds.add(cloud_5);
+
 		// lava_container
 		const lava_container = this.add.container(0, 0);
 
@@ -205,9 +211,9 @@ export default class Level2 extends Phaser.Scene {
 		stein_boden_6.scaleY = 0.4976786900835035;
 
 		// stein_boden_7
-		const stein_boden_7 = this.add.image(3376, 1171, "Stein boden");
-		stein_boden_7.scaleX = 1.1790779621865843;
-		stein_boden_7.scaleY = 0.4976786900835035;
+		const stein_boden_7 = this.add.image(3375, 1171, "Stein boden");
+		stein_boden_7.scaleX = 1.1372317441597861;
+		stein_boden_7.scaleY = 0.5116742396806367;
 
 		// hearts
 		const hearts = this.add.layer();
@@ -231,6 +237,10 @@ export default class Level2 extends Phaser.Scene {
 		// cloud_4 (prefab fields)
 		cloud_4.maxmove = 400;
 		cloud_4.velocity = 80;
+
+		// cloud_5 (prefab fields)
+		cloud_5.maxmove = 600;
+		cloud_5.velocity = 80;
 
 		this.player = player;
 		this.platforms = platforms;

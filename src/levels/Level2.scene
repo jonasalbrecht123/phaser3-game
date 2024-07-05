@@ -363,6 +363,25 @@
                     "y": 1035,
                     "scaleX": 2,
                     "scaleY": 2
+                },
+                {
+                    "prefabId": "b4234dfc-72d4-4007-9998-83facc234c1e",
+                    "id": "68ce8f34-4a1e-47d5-a9ca-8eafa22ed660",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "scaleX",
+                        "scaleY",
+                        "maxmove",
+                        "velocity"
+                    ],
+                    "label": "cloud_5",
+                    "maxmove": 600,
+                    "velocity": 80,
+                    "x": 3814,
+                    "y": 929,
+                    "scaleX": 2,
+                    "scaleY": 2
                 }
             ]
         },
@@ -473,10 +492,10 @@
             "texture": {
                 "key": "Stein boden"
             },
-            "x": 3376,
+            "x": 3375,
             "y": 1171,
-            "scaleX": 1.1790779621865843,
-            "scaleY": 0.4976786900835035
+            "scaleX": 1.1372317441597861,
+            "scaleY": 0.5116742396806367
         },
         {
             "type": "Layer",

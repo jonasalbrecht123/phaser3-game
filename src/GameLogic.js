@@ -94,14 +94,14 @@ export default class GameLogic {
     takeDamage() {
         if (gameData.immunity === 0) {
 			gameData.playerLive-=1
-		gameData.playerLiveLabel?.reduce()
-		gameData.immunity = 1000
-		this.scene.time.addEvent({
-			delay: 1000,
-			callback: () => {
-			gameData.immunity = 0
-			}
-		})	
+		    gameData.playerLiveLabel?.reduce()
+		    gameData.immunity = 1000
+		    this.scene.time.addEvent({
+			    delay: 1000,
+			    callback: () => {
+			        gameData.immunity = 0
+			    }
+		    })	
 		if(gameData.playerLive == 0)
 		{ 
 			this.scene.physics.pause()
